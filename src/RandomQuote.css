@@ -1,0 +1,135 @@
+body{
+    background-color: #170015;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 18px;
+
+}
+body::after{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(135deg, #170015 0%,#170015 49%,#6c4f7c 49%,#6c4f7c 51%,#463a54 51%,#463a54 100%);
+    opacity: 0.7;
+    z-index: -1;
+    
+}
+#quote-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #6c4f7c;
+    transform: translate(-50%, -50%);
+    background-color: #e5e8e5;
+    border: 10px solid #838f84;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: minmax(50px, 2fr) 70px 70px;
+    grid-template-areas: 
+    "quote quote"
+    "author author"
+    "twitter button";
+    min-height: 35vh;
+    min-width:  50vw;
+    padding: 40px;
+    grid-gap: 10px;
+    
+}
+
+#text{
+    grid-area: quote;
+    font-size: 2rem;
+    
+    }
+
+#author{
+    grid-area: author;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    justify-self: flex-end;
+
+    margin-right: 50px;
+}
+
+#tweet-quote{
+    position: absolute;
+    grid-area: twitter;
+}
+.btn {
+    grid-area: button;
+    justify-self: flex-end;
+    width: 50%;
+    color: #6c4f7c;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    position: relative;
+    border: 3px solid #838f84;
+    margin: 0 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    cursor: pointer;
+  }
+
+.btn::before,
+.btn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+}
+
+#new-quote {
+    overflow: hidden; 
+    transition: all 300ms ease;
+    color: #6c4f7c;
+  }
+  
+  
+  #new-quote:after {
+    width: 300%;
+    height: 300%;
+    left: -400%;
+    transform: rotate(45deg);
+    background-color: #838f84;
+    transition: all 300ms ease;
+    
+  }
+  
+  #new-quote:hover span{
+    color: #6c4f7c  ;
+    z-index: 10;
+    
+  }
+  
+  #new-quote:hover::after {
+    left: -100%;
+  }
+  
+
+#twitter-logo{
+    height: 70px;
+    width: 70px;
+    transform: perspective(400px) rotate3d(1,-1,0,calc(var(--i,1)*8deg));
+    mask:
+      linear-gradient(135deg,#000c 40%,#000,#000c 60%)
+      100% 100%/240% 240%;
+    transition: .4s;
+    cursor: pointer;
+}
+    
+  #twitter-logo:hover{
+
+    --i: -1;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+    
+  }
+  
